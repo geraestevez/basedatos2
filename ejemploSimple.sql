@@ -11,3 +11,12 @@ end loop;
 select * from simple1;
 end;
 /
+update simple1 set='xxx' where edad=21;
+set severoutput on;
+declare
+mi_nombre varchar(40),
+begin
+select nombre into mi_nombre from simple1 where edad=21;
+dbms_output.put_line(mi_nombre);
+end;
+/
