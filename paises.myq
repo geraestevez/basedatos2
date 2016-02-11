@@ -1,0 +1,39 @@
+CREATE TABLE PAISES(id_pais varchar2(4), nombre varchar2(100), habitantes integer, idioma varchar2(40), constraint pk_id_pais primary key(id_pais));
+
+insert into paises values('mx','Mexico',90000000,'español'); 
+insert into paises values('usa','Estados Unidos',120000000,'ingles'); 
+insert into paises values('jpa','Japon',8000000,'japones'); 
+insert into paises values('bra','Brasil',2300000,'portugues'); 
+insert into paises values('ger','Alemania',14000000,'aleman');
+
+select * from paises;
+
+DECLARE
+CURSOR CUR_PAISES IS SELECT * FROM PAISES; 
+total_habitantes integer; 
+BEGIN 
+total_habitantes:=0; 
+FOR FILA IN CUR_PAISES LOOP 
+TOTAL_HABITANTES:=TOTAL_HABITANTES+FILA.HABITANTES; 
+DBMS_OUTPUT.PUT_LINE('NOMBRE: '||FILA.NOMBRE||'HABITANTES:'||FILA.HABITANTES);
+END LOOP;
+DBMS_OUTPUT.PUT_LINE('HABITANTES DE TODOS LOS PAISES:'||TOTAL_HABITANTES); 
+END;
+
+
+CREATE TABLE estudiante(id_estudiante integer,
+ id_pais varchar2(4),
+ carrera varchar2(30),
+ edad integer,
+ constraint pk_id_pais primary key(id_pais),
+ constraint fk_id_pais foreign_key(id_pais) references paises(id_pais));
+
+insert into paises values(1,'ger','ISC',20);
+insert into paises values(2,'usa','ISC',23);
+insert into paises values(3,'bra','ISC',32);
+insert into paises values(4,'jpa','ISC',30);
+insert into paises values(5,'mex','ISC',19);
+insert into paises values(6,'mex','ISC',25);
+insert into paises values(7,'mex','ISC',21);
+
+select * form estudiates;
