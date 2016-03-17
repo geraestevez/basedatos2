@@ -82,9 +82,17 @@ INSERT INTO CAJERO VALUES (6,'SANDRA', 'GOMEZ','ENRIQUEZ',13200);
 create or replace 
 PROCEDURE actualizar_producto
 (
-my_id_producto out varchar2,
+my_id_producto in integer,
 my_precio in varchar2
 )as
 BEGIN
   update producto set precio=my_precio where id_producto=my_id_producto;   
  end actualizar_producto;
+ /
+ 
+ begin
+ actualizar_producto(1,30);
+ end;
+ /
+ 
+ select * from producto;
