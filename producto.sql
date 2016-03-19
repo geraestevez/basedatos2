@@ -90,9 +90,19 @@ BEGIN
  end actualizar_producto;
  /
  
+  create or replace trigger dis_producto before update on producto for each row
+begin
+if :new.precio < :old.precio then
+raise_application_error(-20001, 'lo siento el nuevo debe ser mayor');
+end if;
+end;
+/
+ 
+ 
  begin
  actualizar_producto(1,30);
+select * from producto;
  end;
  /
  
- select * from producto;
+
