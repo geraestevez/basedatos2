@@ -12,8 +12,6 @@ dir varchar2(100),
 cp integer,
 muni varchar2(40),
 tel varchar2(20),
-mail varchar2(60),
-password varchar2(60),
 CONSTRAINT PK2_id_persona PRIMARY KEY (id_persona));
 
 create table renta(
@@ -66,13 +64,11 @@ my_nom in varchar2,
 my_dir in varchar2,
 my_cp in varchar2,
 my_muni in varchar2,
-my_tel in varchar2,
-my_mail in varchar2,
-my_password in varchar2
+my_tel in varchar2
 ) AS 
 BEGIN
   select sec_persona.nextval into my_id_persona from dual;
-  insert into persona values(my_id_persona, my_nom, my_dir,my_cp,my_muni,my_tel,my_mail,my_password);
+  insert into persona values(my_id_persona, my_nom, my_dir,my_cp,my_muni,my_tel);
 END guardar_persona;
 /
 
