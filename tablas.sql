@@ -131,3 +131,33 @@ BEGIN
   delete from renta  where my1_id_renta=id_renta;
 END borrar_renta;
 /
+
+create or replace 
+PROCEDURE actualizar_persona
+(
+my2_id_persona in varchar2,
+my2_nom in varchar2,
+my2_dir in varchar2,
+my2_cp in varchar2,
+my2_muni in varchar2,
+my2_tel in varchar2
+)as
+BEGIN   
+  UPDATE persona SET nom=my2_nom, dir=my2_dir,cp=my2_cp, muni=my2_muni, tel=my2_tel WHERE id_persona = my2_id_persona;
+ end actualizar_persona;
+ /
+ 
+ create or replace 
+PROCEDURE actualizar_libro
+(
+my2_id_libro in varchar2,
+my2_nombre in varchar2,
+my2_editorial in varchar2,
+my2_autor in varchar2
+)as
+BEGIN   
+  UPDATE libro SET nombre=my2_nombre, editorial=my2_editorial, autor=my2_autor WHERE id_libro = my2_id_libro;
+ end actualizar_libro;
+ /
+ 
+ 
