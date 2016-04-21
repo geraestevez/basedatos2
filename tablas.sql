@@ -86,4 +86,48 @@ END guardar_renta;
 /
 
 
+create or replace 
+PROCEDURE borrar_persona
+(
+my1_id_persona out varchar2,
+my1_nom in varchar2,
+my1_dir in varchar2,
+my1_cp in varchar2,
+my1_muni in varchar2,
+my1_tel in varchar2
+) AS 
+BEGIN
+  delete from persona  where my1_id_persona=id_persona;
+END borrar_persona;
+/
 
+
+create or replace 
+PROCEDURE borrar_persona
+(
+my1_id_persona in varchar2
+) AS 
+BEGIN
+  delete from persona  where my1_id_persona=id_persona;
+END borrar_persona;
+/
+
+create or replace 
+PROCEDURE borrar_libro
+(
+my1_id_libro in varchar2
+) AS 
+BEGIN
+  delete from libro  where my1_id_libro=id_libro;
+END borrar_libro;
+/
+
+create or replace 
+PROCEDURE borrar_renta
+(
+my1_id_renta in varchar2
+) AS 
+BEGIN
+  delete from renta  where my1_id_renta=id_renta;
+END borrar_renta;
+/
