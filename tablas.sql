@@ -160,4 +160,14 @@ BEGIN
  end actualizar_libro;
  /
  
- 
+  create or replace 
+PROCEDURE actualizar_renta
+(
+my2_id_renta in varchar2,
+my2_lid_libro in varchar2,
+my2_pid_persona in varchar2
+)as
+BEGIN   
+  UPDATE renta SET id_renta=my2_id_renta, lid_libro=my2_lid_libro, pid_persona=my2_pid_persona WHERE id_renta = my2_id_renta;
+ end actualizar_renta;
+ /
